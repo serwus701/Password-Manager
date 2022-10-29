@@ -2,21 +2,21 @@ from Encryption import decrypt
 
 
 def read_data():
-    site_name = []
+    site_names = []
     logins = []
     passwords = []
 
     file = open("login_credentials.txt", "r")
-    app_login = file.readline()
-    app_password = file.readline()
+    app_login = file.readline().split("\n")[0]
+    app_password = file.readline().split("\n")[0]
 
     for _ in file:
-        login_and_password = file.readline().split(" ", 1)
+        login_and_password = file.readline().split(" ", 2)
 
-        site_name += login_and_password[0]
+        site_names += login_and_password[0]
         logins += login_and_password[1]
         passwords += login_and_password[2]
 
     file.close()
 
-    return decrypt(app_login), decrypt(app_password), decrypt(logins), decrypt(passwords)
+    return decrypt(app_login), decrypt(app_password), decrypt(site_names), decrypt(logins), decrypt(passwords)
