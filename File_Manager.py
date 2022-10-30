@@ -10,12 +10,12 @@ def read_data():
     app_login = file.readline().split("\n")[0]
     app_password = file.readline().split("\n")[0]
 
-    for _ in file:
-        login_and_password = file.readline().split(" ", 2)
+    for read in file:
+        login_and_password = read.split(" ", 2)
 
-        site_names += login_and_password[0]
-        logins += login_and_password[1]
-        passwords += login_and_password[2]
+        site_names.append(login_and_password[0])
+        logins.append(login_and_password[1])
+        passwords.append(login_and_password[2].split("\n")[0])
 
     file.close()
 
