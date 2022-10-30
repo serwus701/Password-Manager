@@ -18,7 +18,7 @@ def edit_login_credentials(login_credentials):
                 temp_site, temp_login, temp_password = Interface.add_record()
                 login_credentials = add_record(temp_site, temp_login, temp_password, login_credentials)
             case "2":
-                remove_record()
+                remove_record(login_credentials)
             case "3":
                 edit_record()
             case _:
@@ -33,11 +33,10 @@ def add_record(site, login, password, login_credentials):
     return login_credentials.append([site, login, password])
 
 
-
-
-
-def remove_record():
-    print("remove record")
+def remove_record(login_credentials):
+    position_to_delete = Interface.remove_record()
+    if position_to_delete != "":
+        print(login_credentials[0].index("youtube"))
 
 
 def edit_record():
@@ -45,7 +44,6 @@ def edit_record():
 
 
 def print_results(user_search, login_credentials):
-
     if user_search == "qqq":
         user_search = ""
 
@@ -70,7 +68,8 @@ def program_loop(login_credentials):
 
 
 def startup():
-    app_login_1, app_password, site_names, logins, passwords = read_data()
+    app_login_1, app_password = read_app_login_credentials()
+    site_names, logins, passwords = read_data()
     login_credentials = join_login_credentials(site_names, logins, passwords)
     user_login_input, user_password_input = app_login()
 

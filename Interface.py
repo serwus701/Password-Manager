@@ -22,8 +22,19 @@ def edit_login_credentials():
 
 
 def add_record():
+    print("Add site credentials")
     site = input("Insert site name\n")
     login = input("Insert login\n")
     password = input("Insert password\n")
 
     return site, login, password
+
+
+def remove_record():
+    print("Remove site credentials")
+    site = input("Insert site name")
+
+    if input("Are you sure to remove " + site + " login data? (y/n)") == "y":
+        return site
+    else:
+        return ""
