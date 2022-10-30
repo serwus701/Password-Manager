@@ -1,19 +1,13 @@
-KEY = 3
+from cryptography.fernet import Fernet
 
-
-def encrypt_1(txt):
-    encrypted = ""
-    for i in range(len(txt)):
-        if ord(txt[i]) > 122 - KEY:
-            encrypted += chr(ord(txt[i]) + KEY - 26)
-        else:
-            encrypted += chr(ord(txt[i]) + KEY)
-    return encrypted
+key = Fernet.generate_key()
+fernet = Fernet(key)
 
 
 def encrypt_text(txt):
-    encrypted = txt
-    return encrypted
+    #encoded = fernet.encrypt(txt.encode())
+    encoded = txt
+    return encoded
 
 
 def encrypt_list(list):
@@ -21,8 +15,9 @@ def encrypt_list(list):
 
 
 def decrypt_text(txt):
-    decrypted = txt
-    return decrypted
+    #decoded = fernet.decrypt(txt).decode()
+    decoded = txt
+    return decoded
 
 
 def decrypt_list(list):

@@ -19,4 +19,10 @@ def read_data():
 
     file.close()
 
-    return decrypt_text(app_login), decrypt_text(app_password), decrypt_list(site_names), decrypt_list(logins), decrypt_list(passwords)
+    return decrypt_text(app_login), decrypt_text(app_password), decrypt_list(site_names), decrypt_list(
+        logins), decrypt_list(passwords)
+
+
+def add_record(site, login, password):
+    file = open("login_credentials.txt", "a")
+    file.write("\n" + encrypt_text(site) + " " + encrypt_text(login) + " " + encrypt_text(password))
