@@ -1,4 +1,4 @@
-from Encryption import decrypt
+from Encryption import *
 
 
 def read_data():
@@ -19,4 +19,4 @@ def read_data():
 
     file.close()
 
-    return decrypt(app_login), decrypt(app_password), decrypt(site_names), decrypt(logins), decrypt(passwords)
+    return decrypt_text(app_login), decrypt_text(app_password), decrypt_list(site_names), decrypt_list(logins), decrypt_list(passwords)

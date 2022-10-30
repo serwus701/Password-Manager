@@ -11,11 +11,19 @@ def encrypt_1(txt):
     return encrypted
 
 
-def encrypt(txt):
+def encrypt_text(txt):
     encrypted = txt
     return encrypted
 
 
-def decrypt(txt):
+def encrypt_list(list):
+    return list
+
+
+def decrypt_text(txt):
     decrypted = txt
     return decrypted
+
+
+def decrypt_list(list):
+    return list
